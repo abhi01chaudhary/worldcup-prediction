@@ -1,0 +1,137 @@
+html, body
+{
+    height: 100%;
+}
+
+body, .wrapper {
+    width: 100%;
+    background: #f9f7f7;
+}
+.wrapper.group-stage {
+    background: #f9f7f7;
+}
+.wrapper:before, .wrapper:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.heading{
+	padding:10px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.group{
+	border-right: 1px solid;
+	text-align: center;
+    width: 50%;
+    float: left;
+}
+
+li{
+    list-style-type: none;
+}
+
+.matches {
+    list-style: none;
+}
+
+ul.matches li {
+	display: inline-block;
+    padding: 25px;
+}
+
+button{
+	background-color: #e6ece6;
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    outline: none;
+    font-size: 26px;
+    line-height: 1;
+}
+button:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.image{
+    text-align: center;
+}
+
+.small-group{
+    text-align: center;
+    width: 24%;
+    display: inline-block;
+    border-right: 1px solid;
+    margin-bottom: 50px;
+}
+
+
+.block {
+    position: relative;
+}
+
+.left-part {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    margin-left: -116px;
+}
+
+.right-part {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    margin-left: 40px;
+}
+.group h4{
+    font-size: 24px;
+    color: #0035a9;
+}
+.group h6{
+    font-size: 14px;
+    color: #015700;
+}
+.wrapper .group:nth-child(odd){
+    border-right: 0px;
+}
+.wrapper .small-group:nth-child(4n+1){
+    border-right: 0px;
+}
+
+.wrapper.semi-finals {
+    text-align: center;
+}
+
+.wrapper.semi-finals .small-group:last-child{
+    border-right: 0px;
+}
+
+.wrapper.finals {
+    text-align: center;
+}
+
+.wrapper.finals .small-group{
+    border-right: 0px;
+}
+
+/*button#saveGame {
+    background: green;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    padding: 15px 35px;
+    color: #ffffff;
+    margin: 20px 0;
+}*/
+
+.submit-block{
+    text-align: center;
+}
+
+.winner img {
+    width: 200px;
+    height: 160px;
+}
+
