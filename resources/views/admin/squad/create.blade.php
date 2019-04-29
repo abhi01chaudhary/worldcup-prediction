@@ -8,10 +8,9 @@
     @endif
     <section class="content-header">
         <h1>
-            Add a country
+            Add Players for <strong>{{ $country->name }}</strong>
         </h1>
     </section>
-
     <!-- Main content -->
     <section class="content">
         <div class="row">
@@ -24,26 +23,21 @@
                     <!-- form start -->
                     <div class="box-body">
                         <div class="row">
-
                             <div class="col-md-12">
-                                {{ Form::open(['url'=>'admin/country', 'class'=>'form-horizontal', 'enctype'=>"multipart/form-data",'name'=>'myform']) }}
+                                {{ Form::open(['url'=>'admin/squad', 'class'=>'form-horizontal', 'enctype'=>"multipart/form-data",'name'=>'myform']) }}
+                                    
+                                    @include('admin.squad.form')
 
-                                @include('admin.country.form')
-
-                                <div class="text-right border-top">
-                                    <button type="submit" class="btn btn-warning">Create</button>
-                                </div>
-                                
+                                    <div class="text-right border-top">
+                                        <button type="submit" class="btn btn-warning">Create</button>
+                                    </div>
+                                    
                                 {{ Form::close() }}
                             </div>
-
                         </div>
                     </div>
                 </div><!-- /.box -->
-
-
             </div><!-- /.col -->
         </div><!-- /.row -->
     </section><!-- /.content -->
-
 @stop

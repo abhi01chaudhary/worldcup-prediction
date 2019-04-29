@@ -1,7 +1,7 @@
 <div class="box-body">
 
 <div class="form-group">
-    <label for="first_team" class="col-sm-2 control-label">First Team<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
+    <label for="first_team" class="col-sm-2 control-label">First Opponent<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
     <div class="col-sm-5">
         @if(Request::segment(4) != 'edit')
 
@@ -21,9 +21,8 @@
     </div>
 </div>
 
-
 <div class="form-group">
-    <label for="first_team" class="col-sm-2 control-label">Second Team<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
+    <label for="first_team" class="col-sm-2 control-label">Second Opponent<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
     <div class="col-sm-5">
         @if(Request::segment(4) != 'edit')
 

@@ -18,8 +18,9 @@ class CreateCountriesTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('flag_image');
-            $table->integer('total_goals_count')->nullable();
+            // $table->integer('total_goals_count')->nullable();
             $table->string('total_matches_played')->nullable();
+            $table->integer('total_runs_made')->nullable();
             $table->integer('group_id')->unsigned();
             $table->foreign('group_id')
                 ->references('id')
@@ -30,6 +31,9 @@ class CreateCountriesTable extends Migration
                 ->references('id')
                 ->on('rounds')
                 ->onDelete('cascade');
+            $table->integer('icc_world_ranking')->nullable();
+            $table->string('winning_history')->nullable();
+            $table->text('country_news')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

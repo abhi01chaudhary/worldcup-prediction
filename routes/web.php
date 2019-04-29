@@ -62,9 +62,19 @@ Route::group(['namespace'=>'Admin'], function (){
 
     Route::get('admin/profile','DashboardController@getProfile');
 
-    Route::get('admin/country','CountryController@addCountry');
+    Route::get('admin/country/create','CountryController@addCountry');
+
+    Route::get('admin/country', 'CountryController@index');
     
     Route::post('admin/country','CountryController@store');
+
+    Route::get('admin/country/{id}/delete', 'CountryController@delete')->name('country.destroy');
+
+    Route::get('admin/squad/{id}/create', 'SquadController@create');
+
+    Route::get('admin/squad/{id}/view', 'SquadController@view');
+
+    Route::post('admin/squad', 'SquadController@store');
 
     Route::resource('admin/news','NewsController');
 

@@ -19,7 +19,6 @@ class StadiumController extends Controller
         $this->middleware('auth');
     }
 
-
     public function index()
     {
         $stadia = Stadium::orderBy('created_at', 'Desc')->get();

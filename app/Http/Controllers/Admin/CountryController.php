@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Group;
 use App\Models\Round;
 use App\Models\Country;
+use App\Models\Nation;
 
 class CountryController extends Controller
 {
@@ -17,12 +18,19 @@ class CountryController extends Controller
 	
 	public function addCountry(){
 
-		$groups = Group::pluck('group_name');
+        $groups = Group::pluck('group_name');
 
-		$rounds = Round::pluck('round_name');
+        $rounds = Round::pluck('round_name');
+        
+        $nations = Nation::pluck('name','name');
 
-		return view('admin.country.create', compact('groups','rounds'))->with('title','Add a Country');
-	}
+		return view('admin.country.create', compact('groups','rounds', 'nations'))->with('title','Add a Country');
+    }
+    
+    public function index(){
+        $countries = Country::all();
+        return view('admin.country.index', compact('countries'))->with('title', 'All Countries');
+    }
 
 	public function store(Request $request){
 		
@@ -57,8 +65,15 @@ class CountryController extends Controller
 
         Country::create($input);
 
-        session()->flash('message', 'Country Created');
+        session()->flash('message', 'Country Added. Please add players to it.');
 
         return redirect()->back();
-	}    
+    }    
+    
+    public function delete($id, Request $request){
+        $country = Country::find($id);  
+        $country->delete();
+        session()->flash('message', 'Country Deleted!');
+        return redirect()->back();
+    }
 }
