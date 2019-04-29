@@ -31,11 +31,11 @@ class CreateFixturesTable extends Migration
             //     ->references('id')
             //     ->on('groups')
             //     ->onDelete('cascade');
-            // $table->integer('round_id')->unsigned();
-            // $table->foreign('round_id')
-            //     ->references('id')
-            //     ->on('rounds')
-            //     ->onDelete('cascade');
+            $table->integer('round_id')->unsigned();
+            $table->foreign('round_id')
+                ->references('id')
+                ->on('rounds')
+                ->onDelete('cascade');
             $table->integer('stadium_id')->unsigned();
             $table->foreign('stadium_id')
                 ->references('id')

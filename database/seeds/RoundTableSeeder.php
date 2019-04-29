@@ -17,11 +17,11 @@ class RoundTableSeeder extends Seeder
                 'round_name'=>'Group stage',
                 'slug'=>'group-stage',
             ),
-            array(
-                'id'=>2,
-                'round_name'=>'Round of 16',
-                'slug'=>'round-of-16',
-            ),
+            // array(
+            //     'id'=>2,
+            //     'round_name'=>'Round of 16',
+            //     'slug'=>'round-of-16',
+            // ),
             array(
                 'id'=>3,
                 'round_name'=>'Quarter finals',

@@ -18,13 +18,13 @@ class CountryController extends Controller
 	
 	public function addCountry(){
 
-        $groups = Group::pluck('group_name');
+        // $groups = Group::pluck('group_name');
 
         $rounds = Round::pluck('round_name');
         
         $nations = Nation::pluck('name','name');
 
-		return view('admin.country.create', compact('groups','rounds', 'nations'))->with('title','Add a Country');
+		return view('admin.country.create', compact('rounds', 'nations'))->with('title','Add a Country');
     }
     
     public function index(){
@@ -37,17 +37,17 @@ class CountryController extends Controller
 		$this->validate($request,[
             'name'=>'required',
             'flag_image'=>'required',
-            'group_id'=>'required',
+            // 'group_id'=>'required',
             'round_id'=>'required'
         ]);
 
         $input = $request->all();
 
-        $groupId = $request->group_id + 1;
+        // $groupId = $request->group_id + 1;
 
         $roundId = $request->round_id + 1;
 
-        $input['group_id'] = $groupId;
+        // $input['group_id'] = $groupId;
 
         $input['round_id'] = $roundId;
 

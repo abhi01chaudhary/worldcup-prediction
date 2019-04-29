@@ -61,7 +61,7 @@
 
     @endif
 
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="category" class="col-sm-2 control-label">Select Group<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
         <div class="col-sm-5">
 
@@ -73,7 +73,7 @@
                 </span>
             @endif
         </div>
-    </div>
+    </div> --}}
 
     <div class="form-group">
         <label for="rounds" class="col-sm-2 control-label">Select Round<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
@@ -101,6 +101,18 @@
             @endif
         </div>
     </div> --}}
+
+    <div class="form-group">
+        <label for="total_runs_made" class="col-sm-2 control-label">Total Goals</label>
+        <div class="col-sm-8">
+            {!! Form::text('total_runs_made', null , ['class'=> 'form-control', 'placeholder' => 'Total runs made', 'id'=>"total_runs_made"]) !!}
+            @if ($errors->has('total_runs_made'))
+                    <span class="help-block">
+                    <strong>{{ $errors->first('total_runs_made') }}</strong>
+                </span>
+            @endif
+        </div>
+    </div>
 
     <div class="form-group">
         <label for="total_matches_played" class="col-sm-2 control-label">Total Matches Played</label>
