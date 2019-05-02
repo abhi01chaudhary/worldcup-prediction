@@ -33,8 +33,10 @@ class CreateCountriesTable extends Migration
                 ->onDelete('cascade');
             $table->integer('icc_world_ranking')->nullable();
             $table->string('winning_history')->nullable();
-            $table->integer('winning_count')->nullable();
-            $table->integer('losing_count')->nullable();
+            $table->integer('winning_count')->default(0);
+            $table->integer('losing_count')->default(0);
+            $table->integer('total_points')->default(0);
+            $table->integer('match_count')->default(0);
             $table->text('country_news')->nullable();
             $table->boolean('status')->default(1);
             $table->timestamps();

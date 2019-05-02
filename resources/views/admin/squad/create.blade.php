@@ -9,7 +9,7 @@
     <section class="content-header">
         <h1>
             Add Players for <strong>{{ $country->name }}</strong> 
-        <a href="{{ url('admin/country') }}" class="btn btn-success">List of Countries</a>
+        <a href="{{ url('admin/country') }}" class="btn btn-success">List Countries</a>
         </h1>
 
     </section>

@@ -83,7 +83,9 @@ class FixtureController extends Controller
     }
 
     public function matchPoints(){
-        return view('admin.fixture.match-points')->with('title', 'Overall Points Table');
+        $countries  = Country::all();
+        // $rounds = Round::pluck('round_name');
+        return view('admin.fixture.match-points', compact('countries'))->with('title', 'Overall Points Table');
     }
 
     /**

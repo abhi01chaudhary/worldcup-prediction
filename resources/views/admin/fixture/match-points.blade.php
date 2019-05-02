@@ -4,7 +4,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Fixtures
+            Overall Match Points
         </h1>
     </section>
 
@@ -20,51 +20,36 @@
                         <div class="table-reponsive">
                             <table id="article" class="table table-bordered table-striped category-list">
                                 <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Team</th>
-                                    <th>Second Team</th>
-                                    <th>Round Name</th>
-                                    {{-- <th>Group Name</th> --}}
-                                    <th>Fixture Time</th>
-                                    <th>Actions</th>
-                                </tr>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Country</th>
+                                        <th>Winning History</th>
+                                        <th>Total Matches Played</th>
+                                        <th>Matches won</th>
+                                        <th>Matches lost</th>
+                                        <th>Match Points</th>
+                                        {{-- <th>Actions</th> --}}
+                                    </tr>
                                 </thead>
                                 <tbody>
                                 <?php $i = 1; ?>
-                                @foreach( $fixtures as $fixture )  
-
-                                    <?php
-
-                                        $teamFirst = App\Models\Country::where('id', $fixture->team_first_id)->first();
-
-                                        $teamSecond = App\Models\Country::where('id', $fixture->team_second_id)->first();
-
-                                        $round = App\Models\Round::where('id', $fixture->round_id)->first();
-
-                                        // $group = App\Models\Group::where('id', $fixture->group_id)->first();
-                                    ?>
+                                @foreach( $countries as $country )  
 
                                     <tr>
                                         <td>{{ $i++ }}</td>
-
-                                        <td>{{ $teamFirst->name }} <br> {{ Html::image($teamFirst->flag_image , '', ['width'=>'40px','height'=>'40px']) }}</td> 
-
-                                        <td>{{ $teamSecond->name }} <br> {{ Html::image($teamSecond->flag_image , '', ['width'=>'40px','height'=>'40px']) }}</td> 
-
+                                        <td>{{ $country->name }} <br> {{ Html::image($country->flag_image , '', ['width'=>'30px','height'=>'30px']) }}</td> 
                                         <td>
-                                           {{ $round->round_name }}
+                                            {{ $country->winning_history }}
                                         </td>
-
-                                        {{-- <td>{{ $group->group_name }}</td> --}}
-
-                                        <td>{{ date("F j, Y, g:i a",strtotime($fixture->fixture_time)) }}</td>
-
                                         <td>
-                                            <a href="{{ url('admin/fixtures/'.$fixture->id.'/edit' ) }}" class=" btn btn-primary btn-sm">
-                                                <i class="flaticon-edit"></i>
-                                            </a>
+                                           {{ $country->total_matches_played }}
                                         </td>
+                                        {{-- <td>{{ $country->winning_count }}</td> --}}
+                                        <td>2</td>
+                                        {{-- <td>{{ $country->losing_count }}</td> --}}
+                                        <td>2</td>
+                                        {{-- <td>{{ $country->total_points }}</td> --}}
+                                        <td>12</td>
                                     </tr>
                                 @endforeach
 

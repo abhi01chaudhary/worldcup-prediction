@@ -25,7 +25,7 @@
                                     <th>First Team</th>
                                     <th>Second Team</th>
                                     <th>Round Name</th>
-                                    {{-- <th>Group Name</th> --}}
+                                    <th>Stadium</th>
                                     <th>Fixture Time</th>
                                     <th>Actions</th>
                                 </tr>
@@ -56,7 +56,7 @@
                                            {{ $round->round_name }}
                                         </td>
 
-                                        {{-- <td>{{ $group->group_name }}</td> --}}
+                                        <td>{{ $fixture->stadium->name }} <br> {{ Html::image($fixture->stadium->thumbnail , '', ['width'=>'50px','height'=>'50px']) }}</td>
 
                                         <td>{{ date("F j, Y, g:i a",strtotime($fixture->fixture_time)) }}</td>
 
