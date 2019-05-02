@@ -126,7 +126,7 @@
 
             <div class='input-group date' id='datetimepicker'>
 
-                <input type='text' class="form-control" name="fixture_time" />
+                <input type='text' class="form-control" name="fixture_time" value=""/>
 
                 @if ($errors->has('fixture_time'))
                     <span class="help-block">

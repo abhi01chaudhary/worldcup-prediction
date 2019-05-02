@@ -280,6 +280,7 @@
                         <ul class="treeview-menu">
                             <li><a href="{{ url('admin/fixture/create') }}">Add New Fixture</a></li>
                             <li><a href="{{ url('admin/fixture') }}">All Fixtures</a></li>
+                            <li><a href="{{ url('admin/overall-points') }}">View Overall Points </a></li>
                         </ul>
                     </li>
 

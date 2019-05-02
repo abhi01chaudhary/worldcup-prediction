@@ -47,7 +47,7 @@
                                         <td>{{ $stadium->city }}</td>   
                                         <td>{{ date("F j, Y, g:i a",strtotime($stadium->created_at)) }}</td>
                                         <td>
-                                            <a href="{{ url('admin/stadiums/'.$stadium->id.'/edit' ) }}" class=" btn btn-primary btn-sm">
+                                            <a href="{{ url('admin/stadium/'.$stadium->id.'/edit' ) }}" class=" btn btn-primary btn-sm">
                                                 <i class="flaticon-edit"></i>
                                             </a>
                                         </td>

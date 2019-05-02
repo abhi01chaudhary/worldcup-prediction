@@ -40,11 +40,11 @@
             <label for="flag_image" class="col-sm-2 control-label">Flag Image <span class=help-block" style="color: #b30000">&nbsp;* </span></label>
             <div class="col-sm-10">
                 <input onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
-                       name="flag_image" type="file" placeholder="" value="{{ $advertisement->flag_image }}">
+                       name="flag_image" type="file" placeholder="" value="{{ $country->flag_image }}">
                 Upload Image
                 <div>
-                    @if($advertisement->flag_image)
-                        {{ Html::image($advertisement->flag_image,'',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
+                    @if($country->flag_image)
+                        {{ Html::image($country->flag_image,'',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
                     @else
                         {{ Html::image('backend/dist/img/Not_available.jpg','',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
                     @endif
@@ -78,7 +78,7 @@
     <div class="form-group">
         <label for="rounds" class="col-sm-2 control-label">Select Round<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
         <div class="col-sm-5">
-
+            
             {{ Form::select('round_id', $rounds, null, ['placeholder'=>"Select a Round", 'class'=>'form-control select2']) }}
 
             @if ($errors->has('round_id'))
@@ -102,7 +102,7 @@
         </div>
     </div> --}}
 
-    <div class="form-group">
+    {{-- <div class="form-group">
         <label for="total_runs_made" class="col-sm-2 control-label">Total Goals</label>
         <div class="col-sm-8">
             {!! Form::text('total_runs_made', null , ['class'=> 'form-control', 'placeholder' => 'Total runs made', 'id'=>"total_runs_made"]) !!}
@@ -112,7 +112,7 @@
                 </span>
             @endif
         </div>
-    </div>
+    </div> --}}
 
     <div class="form-group">
         <label for="total_matches_played" class="col-sm-2 control-label">Total Matches Played</label>

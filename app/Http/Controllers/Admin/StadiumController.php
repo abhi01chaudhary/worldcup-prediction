@@ -44,7 +44,7 @@ class StadiumController extends Controller
      */
     public function store(Request $request)
     {
-         $this->validate($request, [
+        $this->validate($request, [
             'name' => 'required',
             'city' => 'required',
             'description' => 'required',
@@ -91,7 +91,8 @@ class StadiumController extends Controller
      */
     public function edit($id)
     {
-        //
+        $stadium = Stadium::find($id);
+        return view('admin.stadium.edit', compact('stadium'))->with('title', 'Edit Stadium');
     }
 
     /**
@@ -103,7 +104,38 @@ class StadiumController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $stadium = Stadium::find($id);
+
+        if(!$stadium){
+            abort(404);
+        }
+
+        $this->validate($request, [
+            'name' => 'required',
+            'city' => 'required',
+            'description' => 'required',
+            'thumbnail' => 'sometimes',       
+        ]);
+
+        $input = $request->all();
+
+        $destinationPath = 'image/stadium/';
+
+        if ($request->file('thumbnail')) {
+
+            $image = str_random(6) . '_' . time() . '.' . $request->file('thumbnail')->getClientOriginalName();
+
+            $input['thumbnail'] = $request->file('thumbnail')->move($destinationPath, $image);
+
+            $input['thumbnail'] = str_replace('\\', '/', $input['thumbnail']);
+
+        }
+
+        $stadium->update($input);
+
+        session()->flash('message', 'Stadium Updated');
+
+        return redirect()->back();
     }
 
     /**

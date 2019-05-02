@@ -70,6 +70,10 @@ Route::group(['namespace'=>'Admin'], function (){
 
     Route::get('admin/country/{id}/delete', 'CountryController@delete')->name('country.destroy');
 
+    Route::get('admin/country/{id}/edit', 'CountryController@edit')->name('country.edit');
+
+    Route::put('admin/country/{id}/update', 'CountryController@update')->name('country.update');
+
     Route::get('admin/squad/{id}/create', 'SquadController@create');
 
     Route::get('admin/squad/{id}/view', 'SquadController@view');
@@ -81,6 +85,8 @@ Route::group(['namespace'=>'Admin'], function (){
     Route::resource('admin/stadium','StadiumController');
 
     Route::resource('admin/fixture','FixtureController');
+
+    Route::get('admin/overall-points', 'FixtureController@matchPoints');
 
 });
 

@@ -35,7 +35,7 @@
                                 @foreach($countries as $country)
                                     <tr>
                                         <td>{{ $i++ }}</td>
-                                        <td><a href="{{ url('admin/squad/'.$country->id.'/create' ) }}">{{ $country->name }}</a></td>                                                                         
+                                        <td><a href="{{ url('admin/squad/'.$country->id.'/view' )  }}">{{ $country->name }}</a></td>                                                                         
                                         <td>
                                             @if($country->flag_image)
                                                 {{ Html::image($country->flag_image,'',['width'=>'80px','height'=>'80px']) }}
@@ -48,7 +48,7 @@
                                         <td>
                                             
                                             <a href="{{ url('admin/squad/'.$country->id.'/create' ) }}" class=" btn btn-success btn-sm">
-                                                Add players to {{ $country->name }}
+                                                Add players to Squad
                                             </a>
 
                                             <a href="{{ url('admin/squad/'.$country->id.'/view' ) }}" class=" btn btn-primary btn-sm">

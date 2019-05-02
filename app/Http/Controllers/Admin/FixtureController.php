@@ -19,11 +19,8 @@ class FixtureController extends Controller
      */
     public function index()
     {
-
         $fixtures = Fixture::all();
-        
         return view('admin.fixture.index',compact('fixtures'))->with('title','World cup | Fixtures');
-    
     }
 
     /**
@@ -50,14 +47,11 @@ class FixtureController extends Controller
      */
     public function store(Request $request)
     {
-
-        // dd($request->all());
-
         $this->validate($request, [
             'team_first_id' => 'required',
             'team_second_id' => 'required',
             'round_id' => 'required',
-            'group_id' => 'required',
+            // 'group_id' => 'required',
             'stadium_id' => 'required',
             'fixture_time' => 'required'       
         ],
@@ -65,7 +59,7 @@ class FixtureController extends Controller
             'team_first_id.required'=>'Team first is required!',
             'team_second_id.required'=>'Team second is required!',
             'round_id.required'=>'Round field is required!',
-            'group_id.required'=>'Group field is required!',
+            // 'group_id.required'=>'Group field is required!',
             'stadium_id.required'=>'Stadium field is required!',
             'fixture_time.required'=>'Fixture time is required!',
         ]);
@@ -86,6 +80,10 @@ class FixtureController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function matchPoints(){
+        return view('admin.fixture.match-points')->with('title', 'Overall Points Table');
     }
 
     /**

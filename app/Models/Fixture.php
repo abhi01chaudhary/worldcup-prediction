@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fixture extends Model
 {
-     protected $fillable = ['team_first_id','team_second_id','group_id','round_id', 'stadium_id','fixture_time','status'];
+     // protected $fillable = ['team_first_id','team_second_id','group_id','round_id', 'stadium_id','fixture_time','status'];
+
+     protected $guarded = [];
 
      public function country(){
      	return $this->belongsTo('App\Models\Country');
