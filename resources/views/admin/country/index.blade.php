@@ -25,7 +25,7 @@
                                     <th>#</th>
                                     <th>Country Name</th>
                                     <th>Flag</th>
-                                    <th>Group</th>
+                                    <th>Round</th>
                                     <th>Created At</th>
                                     <th>Actions</th>
                                 </tr>
@@ -33,6 +33,7 @@
                                 <tbody>
                                 <?php $i = 1; ?>
                                 @foreach($countries as $country)
+                                    <?php $round = App\Models\Round::where('id', $country->round_id)->first(); ?>
                                     <tr>
                                         <td>{{ $i++ }}</td>
                                         <td><a href="{{ url('admin/squad/'.$country->id.'/view' )  }}">{{ $country->name }}</a></td>                                                                         
@@ -43,12 +44,16 @@
                                                 N/A
                                             @endif
                                         </td>
-                                        <td>Group</td>
+                                        <td>{{ $round->round_name }}</td>
                                         <td>{{ date("F j, Y, g:i a",strtotime($country->created_at)) }}</td>
                                         <td>
+
+                                            <?php
+                                                $count = App\Models\Squad::where('country_id', $country->id)->get();
+                                            ?>
                                             
                                             <a href="{{ url('admin/squad/'.$country->id.'/create' ) }}" class=" btn btn-success btn-sm">
-                                                Add players to Squad
+                                                Add players to Squad <span class="badge">{{ count($count) }}</span>
                                             </a>
 
                                             <a href="{{ url('admin/squad/'.$country->id.'/view' ) }}" class=" btn btn-primary btn-sm">

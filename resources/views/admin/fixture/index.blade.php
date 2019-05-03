@@ -64,6 +64,15 @@
                                             <a href="{{ url('admin/fixtures/'.$fixture->id.'/edit' ) }}" class=" btn btn-primary btn-sm">
                                                 <i class="flaticon-edit"></i>
                                             </a>
+                                    
+                                            <form action="{{ route('fixture.destroy', array($fixture->id)) }}"
+                                                  method="DELETE" class="delete-user-form">
+                                                {!! csrf_field() !!}
+
+                                                <button type="submit" class="btn btn-sm btn-danger">
+                                                    <i class="flaticon-delete-button"></i>
+                                                </button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

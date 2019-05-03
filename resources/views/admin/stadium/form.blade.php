@@ -28,7 +28,6 @@
     </div>
 </div>
 
-
 <div class="form-group">
     <label for="Description" class="col-sm-2 control-label ">Description<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
     <div class="col-sm-10">
@@ -42,55 +41,52 @@
     </div>
 </div>
 
-
 @if(Request::segment(4) != 'edit')
-        <div class="form-group">
-            <label for="thumbnail" class="col-sm-2 control-label">Thumbnail Image <span class=help-block" style="color: #b30000">&nbsp;* </span></label>
-            <div class="col-sm-10">
-                <input onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
-                       name="thumbnail" type="file" placeholder="" id="thumbnail" >
+    <div class="form-group">
+        <label for="thumbnail" class="col-sm-2 control-label">Thumbnail Image <span class=help-block" style="color: #b30000">&nbsp;* </span></label>
+        <div class="col-sm-10">
+            <input onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
+                    name="thumbnail" type="file" placeholder="" id="thumbnail" >
+            <div>
+                <img width="150px" id="image"/>
+            </div>
 
-                <div>
-                    <img width="150px" id="image"/>
-                </div>
+            @if ($errors->has('thumbnail'))
+                <span class="help-block">
+                <strong>{{ $errors->first('thumbnail') }}</strong>
+            </span>
+            @endif
 
-                @if ($errors->has('thumbnail'))
-                    <span class="help-block">
-                    <strong>{{ $errors->first('thumbnail') }}</strong>
-                </span>
+        </div>
+    </div>
+@else
+    <div class="form-group ">
+        <label for="thumbnail" class="col-sm-2 control-label">Thumbnail Image <span class=help-block" style="color: #b30000">&nbsp;* </span></label>
+        <div class="col-sm-10">
+            <input onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
+                    name="thumbnail" type="file" placeholder="" value="{{ $stadium->thumbnail }}">
+            Upload Image
+            <div>
+                @if($stadium->thumbnail)
+                    {{ Html::image($stadium->thumbnail,'',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
+                @else
+                    {{ Html::image('backend/dist/img/Not_available.jpg','',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
                 @endif
 
-            </div>
-        </div>
-    @else
-        <div class="form-group ">
-            <label for="thumbnail" class="col-sm-2 control-label">Thumbnail Image <span class=help-block" style="color: #b30000">&nbsp;* </span></label>
-            <div class="col-sm-10">
-                <input onchange="document.getElementById('image').src = window.URL.createObjectURL(this.files[0])"
-                       name="thumbnail" type="file" placeholder="" value="{{ $stadium->thumbnail }}">
-                Upload Image
-                <div>
-                    @if($stadium->thumbnail)
-                        {{ Html::image($stadium->thumbnail,'',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
-                    @else
-                        {{ Html::image('backend/dist/img/Not_available.jpg','',['width'=>'100px','id'=>'image', 'class'=>'table-team-img']) }}
-                    @endif
-
-
-                </div>
-                @if ($errors->has('thumbnail'))
-                    <span class="help-block">
-                    <strong>{{ $errors->first('thumbnail') }}</strong>
-                </span>
-                @endif
 
             </div>
-        </div>
+            @if ($errors->has('thumbnail'))
+                <span class="help-block">
+                <strong>{{ $errors->first('thumbnail') }}</strong>
+            </span>
+            @endif
 
-    @endif
+        </div>
+    </div>
+@endif
 
 <div class="form-group">
-    <label for="city" class="col-sm-2 control-label ">city<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
+    <label for="city" class="col-sm-2 control-label ">City / Address<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
     <div class="col-sm-4">
         
         {!! Form::text('city', null , ['class'=> 'form-control', 'placeholder' => 'city', 'id'=>"city"]) !!}

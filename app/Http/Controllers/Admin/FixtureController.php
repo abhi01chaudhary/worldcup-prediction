@@ -119,6 +119,24 @@ class FixtureController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!request()->ajax()) {
+            return false;
+        }
+
+        $fixture = Fixture::find($id);
+        
+        if(!$fixture){
+            abort(404);
+        }
+
+        $fixture->delete();
+
+        session()->flash('message', 'Fixture Deleted.');
+
+        return response()->json([
+            'status' => 'success',
+            'url' => url('admin/fixture')
+        ]);
+
     }
 }

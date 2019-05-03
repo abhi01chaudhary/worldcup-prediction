@@ -162,6 +162,47 @@
             <span class="error-message"></span>
         </div>
     </div>
+
+    @if(Request::segment(4) == 'edit')
+
+        <div class="form-group">
+            <label for="winning_count" class="col-sm-2 control-label">Winning Count</label>
+            <div class="col-sm-8">
+                {!! Form::text('winning_count', null , ['class'=> 'form-control', 'placeholder' => 'Winning Count', 'id'=>"winning_count"]) !!}
+                @if ($errors->has('winning_count'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('winning_count') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="losing_count" class="col-sm-2 control-label">Losing count</label>
+            <div class="col-sm-8">
+                {!! Form::text('losing_count', null , ['class'=> 'form-control', 'placeholder' => 'Losing Count', 'id'=>"losing_count"]) !!}
+                @if ($errors->has('losing_count'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('losing_count') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="total_points" class="col-sm-2 control-label">Total Points</label>
+            <div class="col-sm-8">
+                {!! Form::text('total_points', null , ['class'=> 'form-control', 'placeholder' => 'Total Points', 'id'=>"total_points"]) !!}
+                @if ($errors->has('total_points'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('total_points') }}</strong>
+                    </span>
+                @endif
+            </div>
+        </div>
+
+    @endif
+
 </div>
 
 
