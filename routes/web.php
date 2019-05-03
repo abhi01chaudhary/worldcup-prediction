@@ -19,6 +19,8 @@ use Illuminate\Http\Request;
 
 Route::get('worldcup-predictor', 'Frontend\PredictionController@prediction');
 
+Route::get('cricket-predictor', 'Frontend\PredictionController@cricketPrediction');
+
 Route::post('fetch-details', 'Frontend\PredictionController@fetchDetails');
 
 Route::post('/favourite-teams/{id}', 'Frontend\ProfileController@favTeams');

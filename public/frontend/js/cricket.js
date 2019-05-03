@@ -4,10 +4,12 @@ $(function(){
 	var flag = 0;
 
 	$("button.plus").click(function() {
-		
+
 		var group = (event.target.id).charAt(6);
 
 		$('.hide').show();
+
+		// console.log($('#first-a'));
 
 		switch(group)
 		{
@@ -376,10 +378,8 @@ $(function(){
 
 		}
 
-		
 	});
 	
-
 	function firstChanges(){
 
 		if( $('#'+target).text() == "+" && placeText == "Select 1st place" ){

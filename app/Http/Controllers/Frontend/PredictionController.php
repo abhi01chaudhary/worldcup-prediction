@@ -11,29 +11,21 @@ class PredictionController extends Controller
 {
     public function prediction(){
     	
-    	$groupAs = Country::where('group_id',1)
-    						->where('round_id',1)->get();
+    	$groupAs = Country::where('round_id',1)->get();
 
-    	$groupBs = Country::where('group_id',2)
-    						->where('round_id',1)->get();
+    	$groupBs = Country::where('round_id',1)->get();
 
-    	$groupCs = Country::where('group_id',3)
-    						->where('round_id',1)->get();
+    	$groupCs = Country::where('round_id',1)->get();
 
-    	$groupDs = Country::where('group_id',4)
-    						->where('round_id',1)->get();
+    	$groupDs = Country::where('round_id',1)->get();
     											
-    	$groupEs = Country::where('group_id',5)
-    						->where('round_id',1)->get();
+    	$groupEs = Country::where('round_id',1)->get();
 
-    	$groupFs = Country::where('group_id',6)
-    						->where('round_id',1)->get();	
+    	$groupFs = Country::where('round_id',1)->get();	
 
-    	$groupGs = Country::where('group_id',7)
-    						->where('round_id',1)->get();
+    	$groupGs = Country::where('round_id',1)->get();
 
-    	$groupHs = Country::where('group_id',8)
-    						->where('round_id',1)->get();
+    	$groupHs = Country::where('round_id',1)->get();
     	
     	return view('frontend.worldcup-predictor', compact('groupAs','groupBs','groupCs','groupDs','groupEs','groupFs','groupGs','groupHs'));
     }
@@ -375,6 +367,28 @@ class PredictionController extends Controller
         }
 
         return 'success';
+
+    }
+
+    public function cricketPrediction(){
+    
+        $groupAs = Country::where('round_id',1)->get();
+
+        $groupBs = Country::where('round_id',1)->get();
+
+        // $groupCs = Country::where('round_id',1)->get();
+
+        // $groupDs = Country::where('round_id',1)->get();
+                                                
+        // $groupEs = Country::where('round_id',1)->get();
+
+        // $groupFs = Country::where('round_id',1)->get();	
+
+        // $groupGs = Country::where('round_id',1)->get();
+
+        // $groupHs = Country::where('round_id',1)->get();
+        
+        return view('frontend.cricket-predictor', compact('groupAs','groupBs','groupCs','groupDs','groupEs','groupFs','groupGs','groupHs'));
 
     }
 

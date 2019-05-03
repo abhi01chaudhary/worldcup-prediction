@@ -6,7 +6,6 @@
         <h1>
             Countries <a href="{{ url('admin/country/create') }}" class="btn btn-success">Add a Country</a>
         </h1>
-        
     </section>
 
     <!-- Main content -->
