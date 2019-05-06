@@ -372,9 +372,9 @@ class PredictionController extends Controller
 
     public function cricketPrediction(){
     
-        $groupAs = Country::where('round_id',1)->get();
+        $groupAs = Country::where('group_id', 1)->where('round_id',1)->get();
 
-        $groupBs = Country::where('round_id',1)->get();
+        $groupBs = Country::where('group_id', 2)->where('round_id',1)->get();
 
         // $groupCs = Country::where('round_id',1)->get();
 
@@ -388,7 +388,7 @@ class PredictionController extends Controller
 
         // $groupHs = Country::where('round_id',1)->get();
         
-        return view('frontend.cricket-predictor', compact('groupAs','groupBs','groupCs','groupDs','groupEs','groupFs','groupGs','groupHs'));
+        return view('frontend.cricket-predictor', compact('groupAs','groupBs'));
 
     }
 

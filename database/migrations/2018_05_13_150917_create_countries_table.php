@@ -21,11 +21,11 @@ class CreateCountriesTable extends Migration
             // $table->integer('total_goals_count')->nullable();
             $table->string('total_matches_played')->nullable();
             $table->integer('total_runs_made')->nullable();
-            // $table->integer('group_id')->unsigned();
-            // $table->foreign('group_id')
-            //     ->references('id')
-            //     ->on('groups')
-            //     ->onDelete('cascade');
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')
+                ->references('id')
+                ->on('groups')
+                ->onDelete('cascade');
             $table->integer('round_id')->unsigned();
             $table->foreign('round_id')
                 ->references('id')

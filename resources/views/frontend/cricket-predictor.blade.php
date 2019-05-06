@@ -56,9 +56,6 @@
 <body>
 
 	<!-- worldcup user infor -->
-
-	
-
 	<div class="wrapper group-stage">
 		
 		<p class="heading">Group Stage</p>
@@ -267,7 +264,7 @@
 		}
 	</style>
 
-	<script src="{{ asset('frontend/js/cricket.js') }}"></script>
+	<script src="{{ asset('frontend/js/cric.js') }}"></script>
 
 	<script>
 

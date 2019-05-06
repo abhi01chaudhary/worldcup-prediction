@@ -61,7 +61,7 @@
 
     @endif
 
-    {{-- <div class="form-group">
+    <div class="form-group">
         <label for="category" class="col-sm-2 control-label">Select Group<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
         <div class="col-sm-5">
 
@@ -73,7 +73,7 @@
                 </span>
             @endif
         </div>
-    </div> --}}
+    </div>
 
     <div class="form-group">
         <label for="rounds" class="col-sm-2 control-label">Select Round<span class=help-block" style="color: #b30000">&nbsp;* </span></label>

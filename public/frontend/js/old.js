@@ -1137,7 +1137,6 @@ $(function(){
 
 						$('#semi-a-second').find('button').html("+");
 
-
 					}else if( text == 'quarter-b-secon'){
 
 						// console.log('b-sec');
@@ -1153,7 +1152,6 @@ $(function(){
 						$('#semi-a-second').find('button').removeClass('quarter').addClass('semi');
 
 						$('#semi-a-second').find('button').html("+");
-
 
 					}
 

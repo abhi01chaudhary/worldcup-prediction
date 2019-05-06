@@ -22,11 +22,11 @@ class RoundTableSeeder extends Seeder
             //     'round_name'=>'Round of 16',
             //     'slug'=>'round-of-16',
             // ),
-            array(
-                'id'=>2,
-                'round_name'=>'Quarter finals',
-                'slug'=>'quarter-finals',
-            ),
+            // array(
+            //     'id'=>2,
+            //     'round_name'=>'Quarter finals',
+            //     'slug'=>'quarter-finals',
+            // ),
             array(
                 'id'=>3,
                 'round_name'=>'Semi finals',

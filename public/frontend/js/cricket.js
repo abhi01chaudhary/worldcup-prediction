@@ -9,6 +9,30 @@ $(function(){
 
 		$('.hide').show();
 
+		// console.log($(this).parents("li"));
+
+		if($(this).html() == "1st"){
+
+			$("#semi-a-first").html("<li>"+$(this).parents("li").html()+"</li>");
+
+			$('#semi-a-first').find('button').html('+');
+
+			$('#semi-a-first').find('button').attr('id','first-semi-a');
+
+			$('#semi-a-first').find('button').removeClass('plus').addClass('semi');
+
+		}else if( $(this).html() == "2nd" ){
+
+			$("#semi-a-second").html("<li>"+$(this).parents("li").html()+"</li>");
+
+			$('#semi-a-second').find('button').html('+');
+
+			$('#semi-a-second').find('button').attr('id','second-semi-a');
+
+			$('#semi-a-second').find('button').removeClass('plus').addClass('semi');
+
+		}
+
 		// console.log($('#first-a'));
 
 		switch(group)
@@ -21,6 +45,7 @@ $(function(){
 
 					var div = "<li> <img class='image' src='image/flags/sg6b4E_1526282342.download.png' alt='' width='60px' height='60px'><span><pRussia</p></span></li>";
 					
+					// console.log(div);
 					//When 1st is removed. Remove 2nd also and append 2nd  
 
 					if( $("#first-b").html() != div ){
@@ -162,7 +187,6 @@ $(function(){
 
 		firstChanges();
 
-
 		switch(group)
 		{
 
@@ -177,7 +201,6 @@ $(function(){
 					$('#first-a').find('button').attr('id','group-a-first');
 
 					$('#first-a').find('button').removeClass('plus').addClass('plus-16');
-
 
 				}else if( $(this).html() == "2nd" ){
 
