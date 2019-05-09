@@ -148,4 +148,19 @@ class StadiumController extends Controller
     {
         //
     }
+
+    public function delete($id){
+        
+        $stadium = Stadium::find($id);  
+
+        if(!$stadium){
+            abort(404);
+        }
+
+        $stadium->delete();
+
+        session()->flash('message', 'Stadium Deleted!');
+        
+        return redirect()->back();
+    }
 }

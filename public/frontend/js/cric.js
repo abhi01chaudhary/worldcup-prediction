@@ -9,6 +9,8 @@ $(function(){
 		var group = (event.target.id).charAt(6);
 		$('.hide').show();
 
+		//Switch for removing 1st and 2nd when already selected
+
 		switch(group)
 		{
 			case 'a':
@@ -18,23 +20,27 @@ $(function(){
 					$("#semi-a-first").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
 
 					var div = "<li> <img class='image' src='' alt='' width='60px' height='60px'></li>";
-					
+
 					// console.log(div);
+				
 					//When 1st is removed. Remove 2nd also and append 2nd  
 
                     if( $("#semi-b-second").html() != div ){
 
                         var newFirst = $("#semi-a-second").html();
 
-                        $("#semi-a-first").html(newFirst);
+						$("#semi-a-first").html(newFirst);
+						
+						$('#semi-a-first').find('button').attr('id','semi-a-first');
 
-                        $("#semi-a-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
+                        $("#semi-a-second").html(div);
                     }
 
 				}else if( $(this).html() == "2nd" ){
 
-					$("#semi-a-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
-				}
+					$("#semi-a-second").html(div);
+                
+                }
 
 				break;
 
@@ -42,9 +48,9 @@ $(function(){
 				
 				if( $(this).html() == "1st" ){
 					
-					$("#semi-b-first").html("<li> <img class='image' src='' alt='' width='60px' height='60px'><span><pRussia</p></span></li>");
+					$("#semi-b-first").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
 
-					var div = "<li> <img class='image' src='' alt='' width='60px' height='60px'><span><pRussia</p></span></li>";
+					var div = "<li> <img class='image' src='' alt='' width='60px' height='60px'></li>";
 					
 					//When 1st is removed. Remove 2nd also and append 2nd  
 
@@ -54,12 +60,14 @@ $(function(){
 
 						$("#semi-b-first").html(newFirst);
 
-						$("#semi-b-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
+						$('#semi-b-first').find('button').attr('id','semi-b-first');
+
+						$("#semi-b-second").html(div);
 					}
 
 				}else if( $(this).html() == "2nd" ){
 
-					$("#semi-b-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
+					$("#semi-b-second").html(div);
 				}
 
             break;
@@ -95,7 +103,7 @@ $(function(){
 
 					$('#semi-a-second').find('button').html('+');
 
-					$('#semi-a-second').find('button').attr('id','semi-a-second');
+					$('#semi-a-second').find('button').attr('id','semi-a-secon');
 
 					$('#semi-a-second').find('button').removeClass('plus').addClass('semi');
 
@@ -334,7 +342,6 @@ $(function(){
 
                         $('#finals-a-first').find('button').removeClass('semi').addClass('final');
 
-
                     }else if( text == 'semi-a-secon'){
 
                         $(this).html('Win');
@@ -348,7 +355,6 @@ $(function(){
                         $('#finals-a-first').find('button').attr('id','finals-a-first');
 
                         $('#finals-a-first').find('button').removeClass('semi').addClass('final');
-
 
                     }
 
@@ -373,7 +379,7 @@ $(function(){
                         $('#finals-a-second').find('button').removeClass('semi').addClass('final');
 
 
-                    }else if( text == 'semi-b-secon'){
+                    }else if( text == 'semi-b-second'){
 
                         // console.log('fasdf');
 
@@ -388,7 +394,6 @@ $(function(){
                         $('#finals-a-second').find('button').attr('id','finals-a-second');
 
                         $('#finals-a-second').find('button').removeClass('semi').addClass('final');
-
 
                     }
 
@@ -431,7 +436,7 @@ $(function(){
 
                     if( $(this).html() == 'Win' && text == 'semi-b-first' ){
 
-                        $("#finals-a-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'><span><pRussia</p></span></li>");
+                        $("#finals-a-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
 
                         $(this).html('+');
 
@@ -441,7 +446,7 @@ $(function(){
 
                         $(this).html('+');
 
-                        $("#finals-a-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'><span><pRussia</p></span></li>");
+                        $("#finals-a-second").html("<li> <img class='image' src='' alt='' width='60px' height='60px'></li>");
 
                         $('#semi-b-first').find('button').html('+');
 
@@ -463,13 +468,15 @@ $(function(){
 
 			$(this).html('Win');
 
-			$('#name').text($(this).parents('span').children('p').html());
+			// $('#name').text($(this).parents('span').children('p').html());
+
+			// var text = $(this).parents('span').children('p').html();
+
+			var text = $('#finals-a-first').find('p').text();
 
 			$('#winner').html($(this).parents("li").children('img').clone());
 
-			var text = $(this).parents('span').children('p').html();
-
-			$('#winner').append("<span><p>"+text+"</p></span>");
+			$('#winner').append("<span><p class='name'>"+text+"</p></span>");
 
 			$('#finals-a-second').find('button').html('Out');
 
@@ -477,9 +484,11 @@ $(function(){
 
 			$(this).html('Win');
 
-			$('#name').text($(this).parents('span').children('p').html());
+			// $('#name').text($(this).parents('span').children('p').html());
 
-			var text = $(this).parents('span').children('p').html();
+			// var text = $(this).parents('span').children('p').html();
+
+			var text = $('#finals-a-second').find('p').text();
 
 			$('#winner').html($(this).parents("li").children('img').clone());
 
@@ -488,104 +497,101 @@ $(function(){
 			$('#finals-a-first').find('button').html('Out');
 
 		}
-		
 
 	});
 
 
-	// $('body').on('click','.save', function(e){
+	$('body').on('click','.save', function(e){
 
-	// 	e.preventDefault();
+		e.preventDefault();
 
-	// 	// Round 16
+		// Round 16
 
-	// 	var groupAFirst = $('#group-a-first').parents('li').find('p').html();
-	// 	var groupASecond = $('#group-a-second').parents('li').find('p').html();
+		// var groupAFirst = $('#group-a-first').parents('li').find('p').html();
+		// var groupASecond = $('#group-a-second').parents('li').find('p').html();
 
-	// 	var groupBFirst = $('#group-b-first').parents('li').find('p').html();
-	// 	var groupBSecond = $('#group-b-second').parents('li').find('p').html();
+		// var groupBFirst = $('#group-b-first').parents('li').find('p').html();
+		// var groupBSecond = $('#group-b-second').parents('li').find('p').html();
 
-	// 	var groupCFirst = $('#group-c-first').parents('li').find('p').html();
-	// 	var groupCSecond = $('#group-c-second').parents('li').find('p').html();
+		// var groupCFirst = $('#group-c-first').parents('li').find('p').html();
+		// var groupCSecond = $('#group-c-second').parents('li').find('p').html();
 
-	// 	var groupDFirst = $('#group-d-first').parents('li').find('p').html();
-	// 	var groupDSecond = $('#group-d-second').parents('li').find('p').html();
+		// var groupDFirst = $('#group-d-first').parents('li').find('p').html();
+		// var groupDSecond = $('#group-d-second').parents('li').find('p').html();
 
-	// 	var groupEFirst = $('#group-e-first').parents('li').find('p').html();
-	// 	var groupESecond = $('#group-e-second').parents('li').find('p').html();
+		// var groupEFirst = $('#group-e-first').parents('li').find('p').html();
+		// var groupESecond = $('#group-e-second').parents('li').find('p').html();
 
-	// 	var groupFFirst = $('#group-f-first').parents('li').find('p').html();
-	// 	var groupFSecond = $('#group-f-second').parents('li').find('p').html();
+		// var groupFFirst = $('#group-f-first').parents('li').find('p').html();
+		// var groupFSecond = $('#group-f-second').parents('li').find('p').html();
 
-	// 	var groupGFirst = $('#group-g-first').parents('li').find('p').html();
-	// 	var groupGSecond = $('#group-g-second').parents('li').find('p').html();
+		// var groupGFirst = $('#group-g-first').parents('li').find('p').html();
+		// var groupGSecond = $('#group-g-second').parents('li').find('p').html();
 
-	// 	var groupHFirst = $('#group-h-first').parents('li').find('p').html();
-	// 	var groupHSecond = $('#group-h-second').parents('li').find('p').html();
+		// var groupHFirst = $('#group-h-first').parents('li').find('p').html();
+		// var groupHSecond = $('#group-h-second').parents('li').find('p').html();
 
-	// 	// quarter-finals
+		// // quarter-finals
 
-	// 	var quarterAFirst = $('#quarter-a-first').children("li").find('p').html();
-	// 	var quarterASecond = $('#quarter-a-second').children("li").find('p').html();
+		// var quarterAFirst = $('#quarter-a-first').children("li").find('p').html();
+		// var quarterASecond = $('#quarter-a-second').children("li").find('p').html();
 
-	// 	var quarterBFirst = $('#quarter-b-first').children("li").find('p').html();
-	// 	var quarterBSecond = $('#quarter-b-second').children("li").find('p').html();
+		// var quarterBFirst = $('#quarter-b-first').children("li").find('p').html();
+		// var quarterBSecond = $('#quarter-b-second').children("li").find('p').html();
 
-	// 	var quarterCFirst = $('#quarter-c-first').children("li").find('p').html();
-	// 	var quarterCSecond = $('#quarter-c-second').children("li").find('p').html();
+		// var quarterCFirst = $('#quarter-c-first').children("li").find('p').html();
+		// var quarterCSecond = $('#quarter-c-second').children("li").find('p').html();
 
-	// 	var quarterDFirst = $('#quarter-d-first').children("li").find('p').html();
-	// 	var quarterDSecond = $('#quarter-d-second').children("li").find('p').html();
+		// var quarterDFirst = $('#quarter-d-first').children("li").find('p').html();
+		// var quarterDSecond = $('#quarter-d-second').children("li").find('p').html();
 
-	// 	//semi-finals
+		//semi-finals
 
-	// 	var semiAFirst = $('#semi-a-first').children("li").find('p').html();
-	// 	var semiASecond = $('#semi-a-second').children("li").find('p').html();
+		var semiAFirst = $('#semi-a-first').children("li").find('p').html();
+		var semiASecond = $('#semi-a-second').children("li").find('p').html();
 
-	// 	var semiBFirst = $('#semi-b-first').children("li").find('p').html();
-	// 	var semiBSecond = $('#semi-b-second').children("li").find('p').html();
+		var semiBFirst = $('#semi-b-first').children("li").find('p').html();
+		var semiBSecond = $('#semi-b-second').children("li").find('p').html();
 
-	// 	//Finals
+		//Finals
 
-	// 	var finalsAFirst =  $('#finals-a-first').children("li").find('p').html();
-	// 	var finalsASecond =  $('#finals-a-second').children("li").find('p').html();
+		var finalsAFirst =  $('#finals-a-first').children("li").find('p').html();
+		var finalsASecond =  $('#finals-a-second').children("li").find('p').html();
 
-	// 	var userId = $('#userId').val();
+		var userId = $('#userId').val();
 
-	// 	console.log(userId);
+		// Winner 
 
-	// 	// Winner 
+		var winner = $('#winner').children('span').find('p').html();
 
-	// 	var winner = $('#winner').children('span').find('p').html();
+		// group16 = [ groupAFirst, groupASecond, groupBFirst, groupBSecond, groupCFirst, groupCSecond, groupDFirst, groupDSecond, groupEFirst, groupESecond, groupFFirst, groupFSecond, groupGFirst, groupGSecond, groupHFirst, groupHSecond];
 
-	// 	group16 = [ groupAFirst, groupASecond, groupBFirst, groupBSecond, groupCFirst, groupCSecond, groupDFirst, groupDSecond, groupEFirst, groupESecond, groupFFirst, groupFSecond, groupGFirst, groupGSecond, groupHFirst, groupHSecond];
+		// quarterFinals = [ quarterAFirst, quarterASecond, quarterBFirst, quarterBSecond, quarterCFirst, quarterCSecond, quarterDFirst, quarterDSecond ];
 
-	// 	quarterFinals = [ quarterAFirst, quarterASecond, quarterBFirst, quarterBSecond, quarterCFirst, quarterCSecond, quarterDFirst, quarterDSecond ];
+		semiFinals = [ semiAFirst, semiASecond, semiBFirst, semiBSecond ];
 
-	// 	semiFinals = [ semiAFirst, semiASecond, semiBFirst, semiBSecond ];
+		finals = [finalsAFirst, finalsASecond];	
 
-	// 	finals = [finalsAFirst, finalsASecond];	
+		data = [ userId, group16, quarterFinals, semiFinals, finals, winner];
 
-	// 	data = [ userId, group16, quarterFinals, semiFinals, finals, winner];
+		console.log(data);
 
-	// 	console.log(data);
+		var url = 'fetch-details';
 
-	// 	var url = 'fetch-details';
+		$.ajax({
+            data: {
+                "_token": "{{ csrf_token() }}",
+                "data": data,
+            },
+            type:'POST',
+            url: url,
+            success:function(response){
+            	alert('You have predicted successfully');
+                console.log(response);
+            }
+        });
 
-	// 	$.ajax({
-    //         data: {
-    //             "_token": "{{ csrf_token() }}",
-    //             "data": data,
-    //         },
-    //         type:'POST',
-    //         url: url,
-    //         success:function(response){
-    //         	alert('You have predicted successfully');
-    //             console.log(response);
-    //         }
-    //     });
-
-	// });	
+	});	
 	
 });
 

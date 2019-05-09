@@ -55,12 +55,9 @@
                     <strong>{{ $errors->first('flag_image') }}</strong>
                 </span>
                 @endif
-
             </div>
         </div>
-
     @endif
-
     <div class="form-group">
         <label for="category" class="col-sm-2 control-label">Select Group<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
         <div class="col-sm-5">
@@ -74,19 +71,15 @@
             @endif
         </div>
     </div>
-
     <div class="form-group">
         <label for="rounds" class="col-sm-2 control-label">Select Round<span class=help-block" style="color: #b30000">&nbsp;* </span></label>
         <div class="col-sm-5">
-            
             {{ Form::select('round_id', $rounds, null, ['placeholder'=>"Select a Round", 'class'=>'form-control select2']) }}
-
             @if ($errors->has('round_id'))
                     <span class="help-block">
                     <strong>{{ $errors->first('round_id') }}</strong>
                 </span>
             @endif
-
         </div>
     </div>
 
@@ -200,9 +193,7 @@
                 @endif
             </div>
         </div>
-
     @endif
-
 </div>
 
 

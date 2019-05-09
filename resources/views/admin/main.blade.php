@@ -284,47 +284,48 @@
                         </ul>
                     </li>
 
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>Quiz</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ url('admin/question') }}">Question</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            <span>Settings</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="{{ url('admin/change-settings') }}">Change Settings</a></li>
+                        </ul>
+                    </li>
                 @endif
-
-
             </ul>
             <!-- /.sidebar-menu -->
-
         </section>
-
         <!-- /.sidebar -->
-
     </aside>
-
-
     <!-- Content Wrapper. Contains page content -->
 
     <div class="content-wrapper">
-
-
         @yield('content')
-
-
     </div>
     <!-- /.content-wrapper -->
 
     @include('admin.partials.popUpModal')
-
     <div class="control-sidebar-bg"></div>
-
 </div>
 
-
-
 <script type="text/javascript">
-
     var APP_URL = {!! json_encode(url('/')) !!};
-
 </script>
-
-
 <![endif]-->
-
 
 {{ Html::script('backend/bootstrap/js/bootstrap.min.js') }}
 

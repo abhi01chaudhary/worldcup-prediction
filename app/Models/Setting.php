@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nation extends Model
+class Setting extends Model
 {
-    protected $guarded = []; 
+    protected $guarded = [];
+    
 }

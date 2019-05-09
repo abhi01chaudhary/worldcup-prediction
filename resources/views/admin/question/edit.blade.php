@@ -2,7 +2,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Edit Stadium
+            Edit Question
         </h1>
     </section>
 
@@ -12,14 +12,15 @@
             <div class="col-md-12">
 
             @include('admin.flash.message')
+            {{--@include('errors.list')--}}
 
             <!-- Horizontal Form -->
                 <div class="box box-info">
                     <!-- form start -->
                     <div class="box-body">
                         <div class="row">
-                            {!! Form::model($stadium, [
-                                'route' => ['stadium.update', $stadium->id],
+                            {!! Form::model($question, [
+                                'route' => ['question.update', $question->id],
                                 'class' => 'form-horizontal',
                                 'method'=> 'PUT',
                                 'files'=> true
@@ -28,13 +29,13 @@
 
                             <div class="row">
                                 <div class="col-md-10">
-                                    @include('admin.stadium.form')
+                                    @include('admin.question.form')
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="text-right border-top">
-                            <button type="submit" class="btn btn-warning">Update</button>
+                            <div class="text-right border-top">
+                                <button type="submit" class="btn btn-warning">Update</button>
+                            </div>
                         </div>
 
                         {!! Form::close() !!}

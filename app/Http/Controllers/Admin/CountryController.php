@@ -130,9 +130,17 @@ class CountryController extends Controller
     }
     
     public function delete($id, Request $request){
+        
         $country = Country::find($id);  
+
+        if(!$country){
+            abort(404);
+        }
+
         $country->delete();
+
         session()->flash('message', 'Country Deleted!');
+        
         return redirect()->back();
     }
 }

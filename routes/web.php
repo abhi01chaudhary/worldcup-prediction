@@ -86,9 +86,29 @@ Route::group(['namespace'=>'Admin'], function (){
 
     Route::resource('admin/stadium','StadiumController');
 
+    Route::get('admin/stadium/{id}/delete', 'StadiumController@delete');
+
     Route::resource('admin/fixture','FixtureController');
 
     Route::get('admin/overall-points', 'FixtureController@matchPoints');
+
+    Route::get('admin/quiz-create', 'QuestionController@create');
+
+    Route::post('admin/question', 'QuestionController@store');
+
+    Route::get('admin/question', 'QuestionController@index');
+
+    Route::get('admin/question/{id}/view', 'QuestionController@view');
+
+    Route::get('admin/question/{id}/edit', 'QuestionController@edit');
+
+    Route::get('admin/question/{id}/delete', 'QuestionController@destroy')->name('question.destroy');
+
+    Route::put('admin/question/{id}/update', 'QuestionController@update')->name('question.update');
+
+    Route::get('admin/change-settings', 'SettingController@create');
+
+    Route::post('admin/setting', 'SettingController@store');
 
 });
 

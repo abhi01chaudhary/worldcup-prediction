@@ -5,6 +5,7 @@
     <section class="content-header">
         <h1>
             Stadia
+        <a href="{{ url('admin/stadium/create') }}" class="btn btn-success">Add New Stadium</a>
         </h1>
     </section>
 
@@ -49,6 +50,10 @@
                                         <td>
                                             <a href="{{ url('admin/stadium/'.$stadium->id.'/edit' ) }}" class=" btn btn-primary btn-sm">
                                                 <i class="flaticon-edit"></i>
+                                            </a>
+
+                                            <a href="{{ url('admin/stadium/'.$stadium->id.'/delete' ) }}" class=" btn btn-danger btn-sm">
+                                                <i class="flaticon-delete-button"></i>
                                             </a>
                                         </td>
                                     </tr>

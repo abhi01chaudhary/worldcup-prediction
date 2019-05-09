@@ -9,7 +9,7 @@ $(function(){
 
 		$('.hide').show();
 
-		// console.log($(this).parents("li"));
+		console.log($(this).parents("li"));
 
 		if($(this).html() == "1st"){
 
@@ -27,7 +27,7 @@ $(function(){
 
 			$('#semi-a-second').find('button').html('+');
 
-			$('#semi-a-second').find('button').attr('id','second-semi-a');
+			$('#semi-a-second').find('button').attr('id','group-b-first');
 
 			$('#semi-a-second').find('button').removeClass('plus').addClass('semi');
 

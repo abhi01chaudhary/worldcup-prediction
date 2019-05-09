@@ -80,4 +80,8 @@ class SquadController extends Controller
         $country = Country::find($id);
         return view('admin.squad.view', compact('players', 'country'))->with('title', 'Total Players');
     }
+
+    public function delete($id){
+        //
+    }
 }
